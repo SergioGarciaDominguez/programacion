@@ -9,21 +9,17 @@
 public class Ejercicio18 {
   public static void main (String[] args) {
     System.out.print("Introduzca un número entero (máximo 5 cifras): ");
-    int numero = Integer.parseInt(System.console().readLine());
-    int primeraCifra = numero;
+    String texto = System.console().readLine();
+    int numero = Integer.parseInt(texto);
     
-    if (numero > -10 && numero < 10) {
+    if ((texto.length() <= 5) && (numero >= 0)) {
+      System.out.println("La primera cifra del número introducido es: " + texto.charAt(0));
       
-    } else if (numero > -100 && numero < 100) {
-      primeraCifra = (numero / 10);
-    } else if (numero > -1000 && numero < 1000) {
-      primeraCifra = (numero / 100);
-    } else if (numero > -10000 && numero < 10000) {
-      primeraCifra = (numero / 1000);
-    } else if (numero > -100000 && numero < 100000) {
-      primeraCifra = (numero / 10000);
+    } else if ((texto.length() <= 6) && (numero < 0)) {
+      System.out.println("La primera cifra del número introducido es: " + texto.charAt(1));
+      
+    } else {
+      System.out.println("El número introducido ha de tener 5 cifras como máximo.");
     }
-    
-    System.out.println("\nLa primera cifra es: " + primeraCifra);
   }
 }

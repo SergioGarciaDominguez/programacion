@@ -8,35 +8,42 @@
 
 public class Ejercicio20 {
   public static void main (String[] args) {
-    System.out.print("Introduzca un número entero (máximo 5 cifras): ");
-    int numero = Integer.parseInt(System.console().readLine());
-    boolean capicua = false;
+    System.out.print("Introduzca un número entero positivo (máximo 5 cifras)");
+    String numero = System.console().readLine();
     
-    if (numero > -10 && numero < 10) {
-      capicua = true;
-    } else if (numero > -100 && numero < 100) {
-      if (numero / 10 == numero % 10) {
+    if ((numero.length() <= 5) && (Integer.parseInt(numero) >= 0)) {
+      boolean capicua = false;
+      
+      if (numero.length() == 1) {
         capicua = true;
+      } else if (numero.length() == 2) {
+        if (numero.charAt(0) == numero.charAt(1)) {
+          capicua = true;
+        }
+      } else if (numero.length() == 3 ){
+        if (numero.charAt(0) == numero.charAt(2)) {
+          capicua = true;
+        }
+      } else if (numero.length() == 4) {
+        if (numero.charAt(0) == numero.charAt(3) && numero.charAt(1) == numero.charAt(2)) {
+          capicua = true;
+        }
+      } else {
+        if (numero.charAt(0) == numero.charAt(4) && numero.charAt(1) == numero.charAt(3)) {
+          capicua = true;
+        }
       }
-    } else if (numero > -1000 && numero < 1000) {
-      if (numero / 100 == numero % 10) {
-        capicua = true;
+      
+      if (capicua == true) {
+        System.out.print("El número " + numero + " es capicúa.");
+      
+      } else {
+        System.out.print("El número " + numero + " no es capicúa.");
       }
-    } else if (numero > -10000 && numero < 10000) {
-      if ((numero / 1000 == numero % 10) && ((numero / 100) % 10 == (numero / 10) % 10)) {
-        capicua = true;
-      }
-    } else if (numero > -100000 && numero < 100000) {
-      if ((numero / 10000 == numero % 10) && ((numero / 1000) % 10 == (numero / 10) % 10)) {
-        capicua = true;
-      }
-    }
-    
-    if (capicua == true) {
-      System.out.println("\n El número " + numero + " es capicúa.");
+      
     } else {
-      System.out.println("\n El número " + numero + " no es capicúa.");
+      System.out.println("Número introducido incorrecto."
+          + " Ha de ser un número entero positivo (máximo 5 cifras)");
     }
-    
   }
 }
