@@ -13,18 +13,19 @@ public class Ejercicio05 {
     System.out.print("Introduzca el valor de 'a': ");
     double a = Double.parseDouble(System.console().readLine());
     
-    if (a != 0) {
-      
-      System.out.print("Introduzca el valor de 'b': ");
-      double b = Double.parseDouble(System.console().readLine());
+    System.out.print("Introduzca el valor de 'b': ");
+    double b = Double.parseDouble(System.console().readLine());
     
+    if (a != 0) {
       System.out.printf("\nLa solución de la ecuación " + a + "x + " + b + " = 0 es: x = %.2f\n",
           (- b) / a);
         
     } else {
-      System.out.println("\n"
-          + "Para que la ecuación ax + b = 0 sea de primer grado,"
-          + " 'a' debe ser distinto de 0.");
+      if (b == 0) {
+        System.out.println("\nLa ecuación tiene infinitas soluciones (ecuación identidad).");
+      } else {
+        System.out.println("\nLa ecuación es inconsistente y no tiene solución.");
+      }
     }
   }
 }

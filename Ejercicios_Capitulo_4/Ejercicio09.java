@@ -13,14 +13,13 @@ public class Ejercicio09 {
     System.out.print("Introduzca el valor de 'a': ");
     double a = Double.parseDouble(System.console().readLine());
     
+    System.out.print("Introduzca el valor de 'b': ");
+    double b = Double.parseDouble(System.console().readLine());
+      
+    System.out.print("Introduzca el valor de 'c': ");
+    double c = Double.parseDouble(System.console().readLine());
+    
     if (a != 0) {
-      
-      System.out.print("Introduzca el valor de 'b': ");
-      double b = Double.parseDouble(System.console().readLine());
-      
-      System.out.print("Introduzca el valor de 'c': ");
-      double c = Double.parseDouble(System.console().readLine());
-  
       if (Math.pow(b, 2) - 4 * a * c > 0) { // El interior de la raíz es positivo
         System.out.printf(""
             + "La ecuación " + a + "x² + " + b + "x + " + c + " = 0 tiene dos soluciones reales:\n"
@@ -41,10 +40,19 @@ public class Ejercicio09 {
             (- b) / (2 * a));
       }
         
-    } else {
-      System.out.println("\n"
-          + "Para que la ecuación ax² + b + c = 0 sea de segundo grado,"
-          + " 'a' debe ser distinto de 0.");
+    } else { // Es una ecuación de primer grado
+      System.out.println("\nEs una ecuación de primer grado");
+      if (b != 0) {
+      System.out.printf("\nLa solución de la ecuación " + a + "x + " + b + " = 0 es: x = %.2f\n",
+          (- b) / a);
+        
+      } else {
+        if (c == 0) {
+          System.out.println("\nLa ecuación tiene infinitas soluciones (ecuación identidad).");
+        } else {
+          System.out.println("\nLa ecuación es inconsistente y no tiene solución.");
+        }
+      }
     }
   }
 }
