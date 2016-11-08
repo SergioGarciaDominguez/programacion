@@ -1,7 +1,7 @@
 /**
 * Capítulo 5 - Ejercicio 20
 *
-* Dibuja una pirámide hueca, pide la altura y el carácter que usa para dibujarla.
+* Dibuja una pirámide hueca, para ello pide la altura y el carácter que usa para dibujarla.
 * 
 * @author Sergio García Domínguez
 */
@@ -11,33 +11,32 @@ public class Ejercicio20 {
     System.out.println("Vamos a dibujar una pirámide\n");
   
     System.out.print("Introduzca la altura de la pirámide: ");
-    int altura = Integer.parseInt(System.console().readLine());
+    int alturaTotal = Integer.parseInt(System.console().readLine());
     
     System.out.print("Introduzca el carácter que se va a usar para dibujarla: ");
     char caracter = (System.console().readLine()).charAt(0);
     
     System.out.print("\n");
     
-    for (int i = 1; i <= (altura - 1); i++) {
-      System.out.print(" ");
-    }
-    System.out.println(caracter);
-    
-    for (int i = 1; i <= altura - 1; i++) {
-      for (int j = 1; j <= altura - i - 1; j++) {
+    for (int nivelActual = 1; nivelActual <= alturaTotal; nivelActual++) {
+      
+      for (int espacios = 1; espacios <= alturaTotal - nivelActual; espacios++) {
         System.out.print(" ");
       }
-      System.out.print(caracter);
       
-      for (int j = 1; j <= 2 * i - 1; j++) {
-        if (i != altura - 1) {
+       if (nivelActual != 1) {
+        System.out.print(caracter);
+      }
+      
+      for (int i = 1; i < 2 * nivelActual - 2; i++) {
+        
+        if (nivelActual != alturaTotal) {
           System.out.print(" ");
         } else {
           System.out.print(caracter);
         }
-      }   
-       
-      System.out.println(caracter);
+      }
+        System.out.print(caracter + "\n");
     }
   }
 }
