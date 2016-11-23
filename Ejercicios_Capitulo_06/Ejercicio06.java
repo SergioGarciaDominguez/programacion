@@ -11,8 +11,6 @@ public class Ejercicio06 {
     int numero = (int)(Math.random() * 101 + 0);
     int contador = 1;
     
-    System.out.println(numero);
-    
     System.out.print("Intente adivinar el número entero de 0 a 100 que he pensado: ");
     int numeroIntento = Integer.parseInt(System.console().readLine());
     
