@@ -27,19 +27,14 @@ public class Ejercicio26 {
     
     System.out.println("Se encuentra en las posiciones: ");
     
-    for (int posicion = totalDigitos; posicion >= 1; posicion--) {
+    for (int i = totalDigitos; i >= 1; i--) {
+      int digitoActual = (int)((numero % Math.pow(10, i)) / Math.pow(10, i - 1));
 
-      if (posicion != 1) {
-        if (digito == ((int)((numero % Math.pow(10, posicion)) / Math.pow(10, posicion - 1)))) {
-          System.out.print((totalDigitos - posicion + 1) + ", ");
-        }
-      } else {
-        if (digito == ((int)((numero % Math.pow(10, posicion))))) {
-          System.out.println(totalDigitos - posicion + 1);
-        }
+      if (digito == digitoActual) {
+        
+        System.out.print((totalDigitos - i + 1) + " ");
       }
     }
-    
     System.out.print("\n");
   }
 }

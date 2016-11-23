@@ -13,16 +13,17 @@ public class Ejercicio12 {
     
     System.out.print("Introduzca el número de términos: ");
     int numeroTerminos = Integer.parseInt(System.console().readLine());
+    
     int penultimoNumero = 0;
     int ultimoNumero = 1;
     
     if (numeroTerminos == 1) {
       
-      System.out.println("0");
+      System.out.println("\n0");
       
     } else if (numeroTerminos == 2) {
       
-      System.out.println("0, 1");
+      System.out.println("\n0, 1");
       
     } else if (numeroTerminos > 2) {
       
