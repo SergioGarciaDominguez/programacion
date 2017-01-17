@@ -1,8 +1,11 @@
 /**
- * Biblioteca
+ * Capítulo 8 - Ejercicio 19
+ * 
  * @author Sergio García Domínguez
  */
+
 import java.util.Scanner;
+import static funciones.Ejercicio01A14.digitos;
 
 public class Ejercicio19 {
   public static void main(String[] args) {
@@ -25,12 +28,12 @@ public class Ejercicio19 {
     System.out.print("\nEl número en base " + baseDeseada + " es el ");
     
     if (basePartida != baseDeseada) {
-      int numeroDecimal;
+      long numeroDecimal;
       
       switch (basePartida) {
         case 2:
         case 8:
-          numeroDecimal = cambiarADecimal(Integer.parseInt(numero), basePartida);  
+          numeroDecimal = cambiarADecimal(Long.parseLong(numero), basePartida);  
           break;
         case 16:
           numeroDecimal = hexadecimalADecimal(numero);
@@ -59,9 +62,9 @@ public class Ejercicio19 {
     
   }
   
-  public static int decimalABase(int n, int b) {
-    int numeroCambiado = 0;
-    int num = n;
+  public static long decimalABase(long n, int b) {
+    long numeroCambiado = 0;
+    long num = n;
     
     for (int i = 1; i <= (int)(Math.log(n) / Math.log(b)) + 1; i++) {
       numeroCambiado += ((int)(Math.pow(10, i - 1) * (num % b)));
@@ -71,10 +74,10 @@ public class Ejercicio19 {
     return numeroCambiado;
   }
   
-  public static int cambiarADecimal(int n, int b) {
-    int numeroCambiado = 0;
+  public static long cambiarADecimal(long n, int b) {
+    long numeroCambiado = 0;
     
-    for (int i = 1; i <= digitos(n); i++) {
+    for (int i = 1; i <= digitos((int)n); i++) {
       numeroCambiado += (int)Math.pow(b, i - 1)
           * (int)((n % Math.pow(10, i)) / Math.pow(10, i - 1));
     }
@@ -82,13 +85,13 @@ public class Ejercicio19 {
     return numeroCambiado;
   }
   
-  public static String decimalAHexadecimal(int n) {
+  public static String decimalAHexadecimal(long n) {
     String numeroCambiado = "";
     String[] digitos = new String[(int)(Math.log(n) / Math.log(16)) + 1];
     
     for (int i = digitos.length - 1; i >= 0; i--) {
       
-      switch (n % 16) {
+      switch ((int)(n % 16)) {
         case 10:
           digitos[i] = "A";
           break;
@@ -122,8 +125,8 @@ public class Ejercicio19 {
     return numeroCambiado;
   }
   
-  public static int hexadecimalADecimal(String n) {
-    int numeroCambiado = 0;
+  public static long hexadecimalADecimal(String n) {
+    long numeroCambiado = 0;
     
     for (int i = n.length() - 1; i >= 0; i--) {
 
@@ -162,20 +165,5 @@ public class Ejercicio19 {
   
     return numeroCambiado;
   }
-  
-  public static int digitos(int n) {
-    int totalDigitos = 0;
-    
-    for (int i = 20; i > 0; i--) {
-      
-      if (n > - Math.pow(10, i) && n < Math.pow(10, i)) {
-        totalDigitos = i;
-      }
-      
-    }
-    
-    return totalDigitos;
-  }
-
 
 }
